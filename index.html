@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francia NFC</title>
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(180deg,#001d4a,#0055A4,#EF4135);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+.container{padding:20px;}
+.card-fc{
+position:relative;
+width:90%;
+max-width:320px;
+height:480px;
+margin:20px auto;
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 0 25px rgba(255,255,255,.25),0 0 55px rgba(0,85,164,.25);
+}
+.card-bg{
+position:absolute;
+width:100%;
+height:100%;
+background:
+linear-gradient(135deg,rgba(0,85,164,.95),rgba(255,255,255,.90),rgba(239,65,53,.95)),
+repeating-linear-gradient(
+90deg,
+#0055A4,#0055A4 35px,
+#FFFFFF 35px,#FFFFFF 70px,
+#EF4135 70px,#EF4135 105px);
+z-index:1;
+}
+.card-bg:after{
+content:"";
+position:absolute;
+top:-50%;
+left:-50%;
+width:200%;
+height:200%;
+background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.18) 40%,transparent 60%);
+animation:shine 6s linear infinite;
+}
+@keyframes shine{
+0%{transform:translateX(-100%) rotate(15deg);}
+100%{transform:translateX(100%) rotate(15deg);}
+}
+.card-player{
+position:absolute;
+bottom:70px;
+left:50%;
+transform:translateX(-50%);
+width:85%;
+max-height:320px;
+object-fit:contain;
+z-index:2;
+}
+.card-info{
+position:absolute;
+bottom:0;
+width:100%;
+padding:15px;
+background:linear-gradient(180deg,transparent,rgba(0,0,0,.88));
+z-index:3;
+}
+.card-name{font-size:26px;font-weight:bold;}
+.card-details{display:flex;justify-content:center;gap:15px;margin-top:5px;}
+.card-details span{background:rgba(0,0,0,.55);padding:5px 12px;border-radius:8px;}
+.player-box{
+width:92%;
+max-width:420px;
+margin:25px auto;
+padding:20px;
+border-radius:22px;
+background:linear-gradient(180deg,rgba(10,10,10,.92),rgba(0,35,80,.92));
+}
+.player-title{
+font-size:28px;
+font-weight:bold;
+margin-bottom:15px;
+color:#FFFFFF;
+}
+.btn-premium,.btn{
+display:block;
+width:90%;
+max-width:350px;
+margin:12px auto;
+padding:16px;
+border-radius:18px;
+text-decoration:none;
+font-weight:bold;
+}
+.btn-premium{
+color:white;
+background:linear-gradient(135deg,#002654,#0055A4,#EF4135);
+}
+.btn{
+background:linear-gradient(135deg,#0055A4,#FFFFFF);
+color:#111;
+}
+.separador{
+height:8px;
+margin:28px 0;
+border-radius:4px;
+background:linear-gradient(90deg,#0055A4,#FFFFFF,#EF4135);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="card-fc">
+<div class="card-bg"></div>
+
+<img id="player-img"
+class="card-player"
+src="mbappe.jpg">
+
+<div class="card-info">
+<div id="card-name" class="card-name">
+Kylian Mbappé
+</div>
+
+<div class="card-details">
+<span>FRA</span>
+<span>🇫🇷</span>
+</div>
+</div>
+</div>
+
+<div class="player-box">
+
+<div id="premium-title" class="player-title">
+✨ Kylian Mbappé Edition
+</div>
+
+<a id="btn-instagram" class="btn-premium" href="#" target="_blank">
+📸 Instagram Oficial
+</a>
+
+<a id="btn-highlights" class="btn-premium" href="#" target="_blank">
+🎥 Highlights
+</a>
+
+<a id="btn-stats" class="btn-premium" href="#" target="_blank">
+📊 Estadísticas
+</a>
+
+<a id="btn-balon" class="btn-premium" href="#" target="_blank">
+🏆 Balón de Oro
+</a>
+
+</div>
+
+<div class="separador"></div>
+
+<a class="btn" href="https://www.fff.fr/" target="_blank">
+🌐 Sitio Oficial FFF
+</a>
+
+<a class="btn" href="https://www.youtube.com/@equipedefrance" target="_blank">
+▶️ YouTube Oficial
+</a>
+
+<a class="btn" href="https://www.instagram.com/equipedefrance/" target="_blank">
+📸 Instagram Oficial
+</a>
+
+<a class="btn" href="https://www.google.com/search?q=seleccion+francia+proximo+partido" target="_blank">
+📅 Próximo Partido
+</a>
+
+<div class="separador"></div>
+
+<a class="btn" href="https://www.google.com/search?q=seleccion+francia+calendario" target="_blank">
+🗓️ Calendario
+</a>
+
+<a class="btn" href="https://www.google.com/search?q=palmares+seleccion+francia" target="_blank">
+🏆 Palmarés
+</a>
+
+<a class="btn" href="https://www.google.com/search?q=francia+camino+al+mundial+2026" target="_blank">
+🌎 Mundial 2026
+</a>
+
+</div>
+
+<script>
+
+const players={
+
+mbappe:{
+name:"Kylian Mbappé",
+image:"mbappe.jpg",
+instagram:"https://www.instagram.com/k.mbappe/",
+highlights:"https://www.youtube.com/results?search_query=mbappe+highlights",
+stats:"https://www.google.com/search?q=kylian+mbappe+estadisticas",
+ballondor:"https://www.google.com/search?q=kylian+mbappe+balon+de+oro"
+},
+
+dembele:{
+name:"Ousmane Dembélé",
+image:"dembele.jpg",
+instagram:"https://www.instagram.com/o.dembele7/",
+highlights:"https://www.youtube.com/results?search_query=dembele+highlights",
+stats:"https://www.google.com/search?q=ousmane+dembele+estadisticas",
+ballondor:"https://www.google.com/search?q=ousmane+dembele+balon+de+oro"
+}
+
+};
+
+const params=new URLSearchParams(window.location.search);
+const playerKey=params.get("player");
+const player=players[playerKey] || players["mbappe"];
+
+document.getElementById("player-img").src=player.image;
+document.getElementById("card-name").innerText=player.name;
+document.getElementById("premium-title").innerText="✨ "+player.name+" Edition";
+document.getElementById("btn-instagram").href=player.instagram;
+document.getElementById("btn-highlights").href=player.highlights;
+document.getElementById("btn-stats").href=player.stats;
+document.getElementById("btn-balon").href=player.ballondor;
+
+</script>
+
+</body>
+</html>
